@@ -1,0 +1,28 @@
+---
+title: "Sampling Sites in Mt. Isarog, PH"
+author: "Shane B. Bimeda"
+date: "January 27, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=FALSE, comment= FALSE, message=FALSE, warning=FALSE}
+df <- data.frame(lat = c(13.66403333333333, 
+                         13.66321666666667, 
+                         13.66166666666667), 
+                 lng = c(123.34986666666667, 
+                         123.33616666666667, 
+                         123.36463333333333))
+                 
+```
+
+```{r, echo=FALSE, comment= FALSE, message=FALSE, warning=FALSE}
+library(leaflet)
+df %>% leaflet() %>%
+  addTiles() %>%
+  addMarkers(lat=df$lat, lng=df$lng,
+             popup = c("Station 2", "Station 1", "Station 3"))
+```
